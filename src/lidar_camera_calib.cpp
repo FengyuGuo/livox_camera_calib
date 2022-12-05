@@ -407,7 +407,9 @@ int main(int argc, char **argv) {
     calibra.image_pub_.publish(img_msg);
     std::cout << "push enter to publish again" << std::endl;
     getchar();
+    cv::destroyAllWindows();
     /* code */
   }
+  
   return 0;
 }

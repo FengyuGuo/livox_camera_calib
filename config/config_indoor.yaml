@@ -8,17 +8,25 @@ ExtrinsicMat: !!opencv-matrix
   rows: 4
   cols: 4
   dt: d
-  data: [0.0,   -1.0,   0.0,    0.0,
-         0.0,  0.0,  -1.0,    0.0,
-         1.0,   0.0,    0.0,    0.0,
-         0.0,   0.0,    0.0,    1.0]
+  data: [  -0.0043262 , -0.999813 , 0.0188346 , -0.0375511,
+          -0.000492618, -0.0188326, -0.999823, 0.0868716,
+          0.999991, -0.00433472, -0.000411052, -0.0453107, 
+          0 , 0 , 0 , 1]
+
+          
+    
+# best T_l_to_cam 
+# -0.0043262 , -0.999813 , 0.0188346 , -0.0375511, 
+# -0.000492618, -0.0188326, -0.999823, 0.0868716, 
+# 0.999991, -0.00433472, -0.000411052, -0.0453107, 
+# 0, 0, 0, 1
 # Params for Canny Edge Extraction
 
 Canny.gray_threshold: 10
 Canny.len_threshold: 200
 
 # Params for Voxel Cutting & Plane Fitting & Edge Extraction
-Voxel.size: 0.5
+Voxel.size: 1
 Voxel.down_sample_size: 0.02
 Plane.min_points_size: 30
 Plane.normal_theta_min: 45
