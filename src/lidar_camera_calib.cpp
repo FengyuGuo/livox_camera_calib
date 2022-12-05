@@ -254,7 +254,7 @@ int main(int argc, char **argv) {
   calibra.init_rgb_cloud_pub_.publish(pub_cloud);
   cv::Mat init_img = calibra.getProjectionImg(calib_params);
   cv::imshow("Initial extrinsic", init_img);
-  cv::imwrite("/home/ycj/data/calib/init.png", init_img);
+  cv::imwrite("/home/guo/fast_lio_lc_ws/src/livox_camera_calib/result/init.png", init_img);
   cv::waitKey(1000);
 
   if (use_rough_calib) {
@@ -375,13 +375,13 @@ int main(int argc, char **argv) {
       Eigen::AngleAxisd(calib_params[2], Eigen::Vector3d::UnitX());
   std::ofstream outfile(result_file);
   for (int i = 0; i < 3; i++) {
-    outfile << R(i, 0) << "," << R(i, 1) << "," << R(i, 2) << "," << T[i]
+    outfile << R(i, 0) << ", " << R(i, 1) << ", " << R(i, 2) << ", " << T[i] << ", "
             << std::endl;
   }
   outfile << 0 << "," << 0 << "," << 0 << "," << 1 << std::endl;
   cv::Mat opt_img = calibra.getProjectionImg(calib_params);
   cv::imshow("Optimization result", opt_img);
-  cv::imwrite("/home/ycj/data/calib/opt.png", opt_img);
+  cv::imwrite("/home/guo/fast_lio_lc_ws/src/livox_camera_calib/result/opt.png", opt_img);
   cv::waitKey(1000);
   Eigen::Matrix3d init_rotation;
   init_rotation << 0, -1.0, 0, 0, 0, -1.0, 1, 0, 0;
